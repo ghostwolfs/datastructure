@@ -37,5 +37,27 @@ function insertionSort(arry){
 		}
 	}
 }
+// countSort
+function countSort(arry){
+	var showArry = [];
+	var temporary = [];
+	temporary[98] = 0;
+	for(i=0;i<temporary.length;i++){
+		temporary[i] = 0;
+	}
+	for(j=0;j<arry.length;j++){
+		temporary[arry[j]+1] = temporary[arry[j]+1]+1;
+	}
+	for(i=1;i<temporary.length;i++){
+		temporary[i] = temporary[i-1] + temporary[i];
+	}
+	console.log(temporary);
+	for(j=arry.length;j>=0;j--){
+		// console.log(j);
+		showArry[temporary[arry[j]]] = arry[j];
+		temporary[arry[j]] = temporary[arry[j]] - 1;
+	}
+	console.log(showArry);
+}
 
 var arry = [23,14,52,98,27,45,11,36,87];
